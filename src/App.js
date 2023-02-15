@@ -13,7 +13,7 @@ const reducer = (state, action) =>{
  if(action.type === "INCREMENT"){
   return state +1;
  } else if(action.type === "DECREMENT"){
-  return state -1;
+  return state -action.payload;
  }
 }
 const [state, dispatch] = useReducer(reducer, initialState)
@@ -28,6 +28,8 @@ const [state, dispatch] = useReducer(reducer, initialState)
       </form>
       {/* useReducer actions */}
       <button onclick ={() => dispatch({ type: "DECREMENT"})}>Decrement</button>
+      {/* useReducer with payload */}
+      <button onclick={() => dispatch({ type: "INCREMENT", payload: 5 })}>INCREMENT</button>
     </div>
   );
 }
